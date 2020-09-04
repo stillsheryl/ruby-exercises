@@ -17,37 +17,56 @@ class SelectPatternTest < Minitest::Test
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     odds = []
     numbers.each do |number|
-      # Your code goes here
+      odds << number if number.odd?
     end
     assert_equal [1, 3, 5, 7, 9], odds
   end
 
   def test_pick_words_with_three_letters
-    skip
+    # skip
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     selected = []
-    # Your code goes here
+    words.each do |word|
+      if word.length == 3
+        selected << word
+      end
+    end
     assert_equal ["bad", "cat", "dog", "red"], selected
   end
 
   def test_pick_words_with_more_than_three_letters
-    skip
+    # skip
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
-    # Your code goes here
+    selected = []
+    words.each do |word|
+      if word.length > 3
+        selected << word
+      end
+    end
     assert_equal ["pill", "finger", "blue", "table"], selected
   end
 
   def test_pick_words_ending_in_e
-    skip
+    # skip
     words = ["are", "you", "strike", "thinking", "belt", "piece", "warble", "sing", "pipe"]
-    # Your code goes here
+    selected = []
+    words.each do |word|
+      if word[-1] == "e"
+        selected << word
+      end
+    end
     assert_equal ["are", "strike", "piece", "warble", "pipe"], selected
   end
 
   def test_pick_words_ending_in_ing
-    skip
+    # skip
     words = ["bring", "finger", "drought", "singing", "bingo", "purposeful"]
-    # Your code goes here
+    selected = []
+    words.each do |word|
+      if word[-3..-1].include?("ing")
+        selected << word
+      end
+    end
     assert_equal ["bring", "singing"], selected
   end
 
